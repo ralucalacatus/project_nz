@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+  	"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name=".bannerLayout" path="/jsp/indexLayout.jsp">
+		<put name="workArea" value="${workArea}" type="page" />
+	</definition>
+
+	<!-- Start Page ======================================================================= -->
+	<definition name=".banner.index" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/startPage.jsp" type="page" />
+	</definition>
+	<definition name=".banner.logs" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/logs.jsp" type="page" />
+	</definition>
+
+	<definition name=".faq.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/faq/list.jsp" type="page" />
+	</definition>
+	<definition name=".faq.listAff" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/faq/listAff.jsp" type="page" />
+	</definition>
+	<definition name=".faq.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/faq/edit.jsp" type="page" />
+	</definition>
+
+	<!-- START USER MODULE (Login and user management) ================================== -->
+	<definition name=".banner.user.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/user/list.jsp" type="page" />
+	</definition>
+	<definition name=".banner.adminUser.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/userAff/userEdit.jsp" type="page" />
+	</definition>
+	<definition name=".user.not.found" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/userAff/userNotFound.jsp" type="page" />
+	</definition>
+	<definition name=".banner.user.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/user/edit.jsp" type="page" />
+	</definition>
+	<definition name=".banner.user.profile" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/user/profile.jsp" type="page" />
+	</definition>
+	<definition name=".banner.user.playersAction" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/user/players.jsp" type="page" />
+	</definition>
+	<definition name=".adf88.training" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/user/training.jsp" type="page" />
+	</definition>
+
+	<definition name=".user.view" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/userAff/view.jsp" type="page" />
+	</definition>
+	<definition name=".user.adminAff" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/userAff/admin.jsp" type="page" />
+	</definition>
+	<definition name=".user.group" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/userAff/groupList.jsp" type="page" />
+	</definition>
+
+	<!-- END MODULE (Login and user management) ========================================= -->
+
+	<!-- START dashboard MODULE ============================== -->
+	<definition name=".dashboard" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/dashbord/main.jsp" type="page" />
+	</definition>
+	<definition name=".dashboard.affiliateAll" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/dashboard/affiliateX.jsp" type="page" />
+	</definition>
+	<definition name=".dashboard.channelAll" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/dashboard/channelX.jsp" type="page" />
+	</definition>
+
+	<definition name=".news.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/news/newsDetailList.jsp" type="page" />
+	</definition>
+
+	<definition name=".news.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/news/newsEdit.jsp" type="page" />
+	</definition>
+
+	<definition name=".news.view" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/news/newsView.jsp" type="page" />
+	</definition>
+
+
+	<!-- END dashboard MODULE================================ -->
+
+	<!-- START ACCOUNT MODULE ============================== -->
+	<definition name=".banner.account.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/account/accountList.jsp" type="page" />
+	</definition>
+	<definition name=".banner.account.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/account/accountEdit.jsp" type="page" />
+	</definition>
+	<definition name=".banner.account.brands" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/account/brandsEdit.jsp" type="page" />
+	</definition>
+	<!-- END ACCOUNT MODULE================================ -->
+
+	<!-- START STRATEGY MODULE (Login and user management) ============================== -->
+	<definition name=".banner.strategy.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/strategy/strategyList.jsp" type="page" />
+	</definition>
+
+	<definition name=".banner.strategy.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/strategy/strategyEdit.jsp" type="page" />
+	</definition>
+
+	<definition name=".banner.strategy.simulation" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/strategy/strategySimulation.jsp" type="page" />
+	</definition>
+	<!-- END STRATEGY MODULE (Login and user management) ================================ -->
+
+	<!-- START VOCABULARY module ======================================================== -->
+	<definition name=".banner.activeLanguages.index" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/vocabulary/activeLanguages.jsp" type="page" />
+	</definition>
+
+	<definition name=".banner.vocabulary.index" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/vocabulary/vocabulary.jsp" type="page" />
+	</definition>
+	<!-- END VOCABULARY module ========================================================== -->
+
+	<!-- START REPORT module ============================================================ -->
+	<definition name=".banner.reports.index" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reports/index.jsp" type="page" />
+	</definition>
+	<definition name=".banner.reports.admin" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reports/admin.jsp" type="page" />
+	</definition>
+	<definition name=".banner.reports.migration" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reports/migrateUsers.jsp" type="page" />
+	</definition>
+	<!-- END REPORT module ============================================================== -->
+
+	<!-- START PLACEMENT MODULE ====================================================================================== -->
+	<definition name=".banner.placement.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/placement/placementEdit.jsp" type="page" />
+	</definition>
+	<definition name=".banner.placement.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/placement/placementList.jsp" type="page" />
+	</definition>
+	<!-- END PLACEMENT MODULE ======================================================================================== -->
+
+	<!-- START RESOURCE MODULE ======================================================================================= -->
+	<definition name=".banner.resource.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/resources/list.jsp" type="page" />
+	</definition>
+		<definition name=".banner.resource.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/resources/editText.jsp" type="page" />
+	</definition>
+	<!-- END RESOURCE MODULE ========================================================================================= -->
+
+	<!-- START QUERY MODULE ========================================================================================== -->
+	<definition name=".banner.query.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/query/queryList.jsp" type="page" />
+	</definition>
+	<definition name=".banner.queryOdds.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/query/odds/queryOddsEdit.jsp" type="page" />
+	</definition>
+	<definition name=".banner.queryPoker.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/query/poker/queryPokerEdit.jsp" type="page" />
+	</definition>
+	<definition name=".banner.queryCasino.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/query/casino/queryCasinoEdit.jsp" type="page" />
+	</definition>
+	<definition name=".banner.queryBingo.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/query/bingo/queryBingoEdit.jsp" type="page" />
+	</definition>
+	<!-- END QUERY MODULE ============================================================================================ -->
+
+	<!-- START BANNER MODULE ========================================================================================= -->
+	<definition name=".banner.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/banner/bannerList.jsp" type="page" />
+	</definition>
+	<definition name=".banner.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/banner/bannerEdit.jsp" type="page" />
+	</definition>
+	<!-- END BANNER MODULE =========================================================================================== -->
+
+	<!-- START TRANSLATIONS MODULE ======================================================================================= -->
+	<definition name=".adf88.translations" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/translations/translations.jsp" type="page" />
+	</definition>
+	<!-- END TRANSLATIONS MODULE ========================================================================================= -->
+
+	<definition name=".adf88.everyMatrix.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/everyMatrix/everyMatrixEdit.jsp" type="page" />
+	</definition>
+
+	<!-- AFFILIATION -->
+	<definition name=".aff.commission" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/userAff/commissionStructure.jsp" type="page" />
+	</definition>
+
+	<!-- PLACEMENT AFF MODULE ========================================================================================= -->
+	<definition name=".aff.placementAff.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/placementAff/placementAffList.jsp" type="page" />
+	</definition>
+
+	<definition name=".aff.placementAff.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/placementAff/placementAffEdit.jsp" type="page" />
+	</definition>
+
+	<!-- Banner affiliates -->
+	<definition name=".aff.banner" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/bannerAff/selection.jsp"></put>
+	</definition>
+
+	<definition name=".aff.banner.code" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/bannerAff/trackingCode.jsp"></put>
+	</definition>
+
+	<definition name=".aff.banner.chanel" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/bannerAff/chanel.jsp"></put>
+	</definition>
+	<definition name=".aff.banner.promoCode" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/bannerAff/promoCode.jsp"></put>
+	</definition>
+
+	<!-- Report affiliation -->
+
+	<definition name=".affiliate.report" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/report.jsp"></put>
+	</definition>
+
+	<definition name=".affiliate.report.chanel" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/chanelReport.jsp"></put>
+	</definition>
+
+	<definition name=".affiliate.report.registration" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/registrationReport.jsp"></put>
+	</definition>
+
+	<definition name=".affiliate.report.registrationBOV" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/registrationReportBOV.jsp"></put>
+	</definition>
+
+	<definition name=".affiliation.report.affiliationRegistration" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliation/affiliationRegistrationReport.jsp"></put>
+	</definition>
+	<definition name=".affiliation.report.affiliationRegistrationBOV" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliation/affiliationRegistrationReportBOV.jsp"></put>
+	</definition>
+	<definition name=".affiliation.report.subAffiliationRegistration" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliation/subAffiliationRegistrationReport.jsp"></put>
+	</definition>
+	<definition name=".affiliate.report.financial" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/financialReport.jsp"></put>
+	</definition>
+	<definition name=".affiliate.report.category" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/financialCategoryReport.jsp"></put>
+	</definition>
+	<definition name=".affiliate.report.balance" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/balance.jsp"></put>
+	</definition>
+	<definition name=".affiliate.report.balanceBOV" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/balanceBOV.jsp"></put>
+	</definition>
+	<definition name=".affiliate.report.balancePayExternally" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/balancePayExternally.jsp"></put>
+	</definition>
+	<definition name=".affiliate.report.transactionHistory" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/transactionHistory.jsp"></put>
+	</definition>
+	<definition name=".affiliate.report.transactionHistoryBOV" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/transactionHistoryBOV.jsp"></put>
+	</definition>
+	<definition name=".affiliate.report.transactionHistoryPayExternally" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/transactionHistoryPayExternally"></put>
+	</definition>
+	<definition name=".aff.report" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliation/reportBanner.jsp"></put>
+	</definition>
+	<definition name=".aff.report.banner.list" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliation/reportBannerList.jsp"></put>
+	</definition>
+	<definition name=".aff.report.players" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/reportPlayers.jsp"></put>
+	</definition>
+	<definition name=".aff.report.subAffRegReport" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliate/subAffRegReports.jsp"></put>
+	</definition>
+	<definition name=".aff.report.client" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/reportsAff/affiliation/reportClients.jsp"></put>
+	</definition>
+	<definition name=".affiliate.edit" extends=".bannerLayout">
+		<put name="workArea" value="/jsp/userAff/edit.jsp"></put>
+	</definition>
+</tiles-definitions>

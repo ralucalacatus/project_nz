@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+       "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+       "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+	<!-- ======================================== Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="bbBaseForm" type="com.betbrain.struts.BBBaseActionForm" />
+
+		<!-- USER module -->
+		<form-bean name="userEditForm" type="com.betbrain.adf88.user.EditForm" />
+
+		<form-bean name="userGroupForm"
+			type="com.betbrain.affiliation.userAff.group.UserGroupForm" />
+		<form-bean name="userAffForm" type="com.betbrain.affiliation.userAff.UserAff" />
+		<form-bean name="UserAffFilter"
+			type="com.betbrain.affiliation.userAff.admin.UserAffFilter" />
+		<form-bean name="PlayersActionForm" type="com.betbrain.adf88.user.PlayersActionForm" />
+
+		<!-- ACCOUNT module -->
+		<form-bean name="accountForm" type="com.betbrain.adf88.account.AccountForm" />
+		<form-bean name="brandForm"
+			type="com.betbrain.adf88.account.AccountBrandActionForm" />
+
+		<!-- QUERY module -->
+		<form-bean name="queryOddsForm" type="com.betbrain.adf88.query.QueryOddsForm" />
+		<form-bean name="queryPokerForm"
+			type="com.betbrain.adf88.query.poker.QueryPokerForm" />
+		<form-bean name="queryCasinoForm"
+			type="com.betbrain.adf88.query.casino.QueryCasinoForm" />
+		<form-bean name="queryBingoForm"
+			type="com.betbrain.adf88.query.bingo.QueryBingoForm" />
+
+		<!-- STRATEGY module -->
+		<form-bean name="strategyForm" type="com.betbrain.adf88.strategy.StrategyForm" />
+		<form-bean name="strSimulationForm"
+			type="com.betbrain.adf88.strategy.simulation.StrategySimulationForm" />
+
+		<!-- VOCABULARY module -->
+		<form-bean name="vocabularyForm"
+			type="com.betbrain.adf88.vocabulary.VocabularyForm" />
+
+		<!-- PLACEMENT module -->
+		<form-bean name="placementForm" type="com.betbrain.adf88.placement.PlacementForm" />
+
+		<!-- REPORT module -->
+		<form-bean name="reportForm" type="com.betbrain.adf88.report.ReportForm" />
+
+		<form-bean name="GroupComponentForm"
+			type="com.betbrain.adf88.common.GroupComponentForm" />
+
+		<form-bean name="resourceForm" type="com.betbrain.adf88.resources.ResourceForm" />
+		<form-bean name="userManagerForm"
+			type="com.betbrain.adf88.userManager.UserManagerForm" />
+
+		<form-bean name="bannerClick" type="com.betbrain.adf88.banner.BannerClickForm" />
+
+		<form-bean name="bannerEditForm" type="com.betbrain.adf88.banner.BannerEditForm" />
+
+		<!-- TRANSLATIONS module -->
+		<form-bean name="translationsForm"
+			type="com.betbrain.adf88.translations.TranslationsForm" />
+
+		<form-bean name="everyMatrixForm"
+			type="com.betbrain.adf88.everyMatrix.EveryMatrixForm" />
+
+		<!-- AFFILIATION -->
+		<!-- PLACEMENTAFF -->
+		<form-bean name="placementAffForm"
+			type="com.betbrain.affiliation.placementAff.PlacementAffForm" />
+
+		<form-bean name="affiliateBannerForm"
+			type="com.betbrain.affiliation.banner.AffiliateBannerForm" />
+
+		<form-bean name="affiliationReportForm"
+			type="com.betbrain.affiliation.report.AffiliationReportForm" />
+		<form-bean name="affiliationClientReportForm"
+			type="com.betbrain.affiliation.report.AffiliationClientReportForm" />
+
+		<form-bean name="affiliateFinancialReportForm"
+			type="com.betbrain.affiliation.report.AffiliateFinancialReportForm" />
+		<form-bean name="affiliateBalanceForm"
+			type="com.betbrain.affiliation.report.AffiliateBalanceForm" />
+		<form-bean name="commissionStructureForm"
+			type="com.betbrain.affiliation.userAff.admin.CommissionStructureForm" />
+
+		<form-bean name="newsForm" type="com.betbrain.adf88.news.NewsForm" />
+
+		<!-- LOGS -->
+		<form-bean name="logsForm" type="com.betbrain.adf88.logs.LogsForm" />
+
+		<form-bean name="promoCodeForm"
+			type="com.betbrain.affiliation.banner.AffiliatePromoCodeForm" />
+	</form-beans>
+
+	<!-- ========== Exceptions ============================================== -->
+	<global-exceptions>
+		<exception key="error" handler="com.betbrain.struts.BBExceptionHandler"
+			path="/internalError.jsp" type="java.lang.Exception" />
+	</global-exceptions>
+
+	<global-forwards>
+		<forward name="home.page" path="/index.do" redirect="true" />
+
+		<forward name="redirect" path="/jsp/redirect.jsp" />
+		<forward name="not.allowed" path="/notAllowed.do" />
+		<forward name="login.page" path="/user/login.do" />
+
+		<forward name="pages.busy" path="/servertoobusy.jsp" />
+		<forward name="pages.toManyRequests" path="/toomanyrequestsbyip.jsp" />
+
+		<forward name="xlsExport" path="/servlets/xls" />
+		<forward name="pdfExport" path="/servlets/pdf" />
+
+		<forward name="blocked" path="/blockedAccount.do" />
+		<forward name="tc" path="/tc.do" />
+		<forward name="blockedCountry" path="/blockedCountry.do" />
+
+		<forward name="emailVerification" path="/jsp/emailVerification.jsp" redirect="true" />
+
+	</global-forwards>
+
+	<action-mappings>
+		<!-- Start Page Action ========================================================== -->
+		
+		<action path="/startActionPage" name="startActionPageForm" scope="request"
+			validate="false" type="com.debts.init.StartServlet" input="" />
+		
+		
+		<action path="/index" name="bbBaseForm" scope="request"
+			validate="false" type="com.betbrain.adf88.StartPageAction" input=".banner.index" />
+
+		<action path="/notAllowed" name="bbBaseForm" scope="request"
+			validate="false" type="com.betbrain.adf88.NotAllowed" input="/notAllowed.jsp" />
+
+		<action path="/tc" name="bbBaseForm" scope="request" validate="false"
+			type="com.betbrain.adf88.user.TermsAndConditionsAction" input="/jsp/user/termsAndConditions.jsp">
+			<forward name="ok" path="/index.do" />
+		</action>
+
+		<action path="/emailVerification" scope="request" validate="false"  type="com.betbrain.adf88.user.VerificationAction"
+			input="/jsp/emailVerification.jsp">
+			<forward name="ok" path="/emailVerification" />
+			<forward name="fail" path=".user.not.found" />
+		</action>
+
+		<action path="/blockedCountry" name="bbBaseForm" scope="request"
+			validate="false" type="com.betbrain.adf88.BlockedCountryAction"
+			input="/jsp/blockedCountry.jsp">
+		</action>
+		<action path="/blockedAccount" name="bbBaseForm" scope="request"
+			validate="false" type="com.betbrain.adf88.BlockedAccountAction"
+			input="/jsp/blocked.jsp">
+		</action>
+
+		<action path="/groupAutoComplete" scope="request" validate="false"
+			type="com.betbrain.adf88.common.GroupsAutoComplete" />
+		<action path="/userAutoComplete" scope="request" validate="false"
+			type="com.betbrain.affiliation.userAff.UsersAutoComplete" />
+		<action path="/participantsAutoComplete" scope="request"
+			validate="false" type="com.betbrain.adf88.common.ParticipantsAutoComplete" />
+
+		<!-- START USER module (Login and user management) ============================== -->
+		<action path="/user/login" name="bbBaseForm" scope="request"
+			validate="false" attribute="userLoginForm" type="com.betbrain.adf88.user.LoginAction"
+			input="/jsp/user/login.jsp">
+		</action>
+		<action path="/user/group" parameter="action" name="userGroupForm"
+			scope="request" validate="false"
+			type="com.betbrain.affiliation.userAff.group.UserGroupAction">
+			<forward name="list" path=".user.group"></forward>
+		</action>
+		<action path="/user/passRecovery" name="bbBaseForm" scope="request"
+			validate="false" type="com.betbrain.adf88.user.PasswordRecoveryAction"
+			input="/jsp/user/passRecovery.jsp">
+			<forward name="ok" path="/user/login.do?email=true" redirect="true"></forward>
+		</action>
+
+		<action path="/user/sendmail" name="bbBaseForm" scope="request"
+			validate="false" type="com.betbrain.affiliation.mail.SendMail" input=""
+			parameter="action">
+		</action>
+
+		<action path="/logAndReg" input="/jsp/user/logAndReg.jsp"
+			type="com.betbrain.adf88.user.LoginAndRegAction" name="bbBaseForm"
+			attribute="userLoginForm" scope="request" validate="false">
+		</action>
+		<action path="/user/register" name="userAffForm" scope="session"
+			validate="false" attribute="userAffForm" parameter="action"
+			type="com.betbrain.affiliation.userAff.UserAffEditAction" input="/jsp/userAff/register.jsp">
+			<forward name="success" path="/jsp/userAff/registered.jsp" />
+		</action>
+
+		<action path="/user/editAff" name="userAffForm" scope="session"
+			validate="true" attribute="userAffForm" parameter="action"
+			type="com.betbrain.affiliation.userAff.UserAffEditAction" input=".affiliate.edit">
+		</action>
+		<action path="/userAdmin/show" name="commissionStructureForm"
+			parameter="action" scope="request"
+			type="com.betbrain.affiliation.userAff.admin.UserInfoDisplay" input=".user.view">
+		</action>
+
+		<action path="/userAdmin/List" name="UserAffFilter" scope="session"
+			validate="false" attribute="UserAffFilter" parameter="action"
+			type="com.betbrain.affiliation.userAff.admin.UserAffManagementAction"
+			input=".user.adminAff">
+			<forward name="continueList" path="/userAdmin/List.do"
+				redirect="true"></forward>
+			<forward name="filter" path="/jsp/userAff/admin.jsp"></forward>
+		</action>
+
+
+
+		<action path="/user/logout" type="com.betbrain.adf88.user.LogoutAction">
+			<forward name="continueList" path="/index.do" redirect="true"></forward>
+		</action>
+
+		<action path="/user/list" type="com.betbrain.adf88.user.ListAction"
+			input=".banner.user.list" />
+
+		<action path="/user/edit" name="userEditForm" scope="request"
+			validate="false" type="com.betbrain.adf88.user.EditAction" input=".banner.user.edit">
+			<forward name="success" path="/user/list.do" />
+		</action>
+
+		<action path="/userAdmin/editUser" name="userAffForm" scope="request"
+			validate="true" parameter="action"
+			type="com.betbrain.affiliation.userAff.AdminUserAffEdit" input=".banner.adminUser.edit">
+			<forward name="fail" path=".user.not.found" />
+		</action>
+
+		<action path="/admin/user/editUser" name="userAffForm" scope="request"
+			validate="true" parameter="action"
+			type="com.betbrain.affiliation.userAff.AdminUserAffEdit" input="/jsp/userAff/userEdit.jsp">
+			<forward name="fail" path=".user.not.found" />
+		</action>
+
+		<action path="/user/profile" name="bbBaseForm" scope="request"
+			validate="false" attribute="userProfileForm" type="com.betbrain.adf88.user.ProfileAction"
+			input=".banner.user.profile" />
+
+		<action path="/customer" parameter="method"
+			type="com.betbrain.adf88.user.TrainingAction" input=".adf88.training" />
+
+		<action path="/playersAction" parameter="method" scope="request"
+			validate="false" type="com.betbrain.adf88.user.PlayersAction" name="PlayersActionForm"
+			input=".banner.user.playersAction">
+			<forward name="goBack" path="/playersAction.do" redirect="true" />
+		</action>
+		<!-- END USER module ============================================================ -->
+
+		<!-- START ACCOUNT MODULE ============================== -->
+		<action path="/account/edit" name="accountForm" scope="request"
+			validate="false" parameter="action"
+			type="com.betbrain.adf88.account.AccountEditAction" input=".banner.account.edit">
+			<forward name="success" path="/account/list.do" />
+		</action>
+
+		<action path="/account/brands" name="brandForm" scope="request"
+			validate="false" parameter="method"
+			type="com.betbrain.adf88.account.AccountBrandAction" input=".banner.account.brands">
+			<forward name="success" path="/account/brands.do" />
+		</action>
+
+		<action path="/account/list" name="accountForm" scope="request"
+			validate="false" parameter="method"
+			type="com.betbrain.adf88.account.AccountListAction" input=".banner.account.list">
+			<forward name="success" path="/account/list.do" />
+		</action>
+		<!-- END ACCOUNT MODULE================================ -->
+
+		<!-- START STRATEGY module ====================================================== -->
+		<action path="/strategy/list" parameter="method"
+			type="com.betbrain.adf88.strategy.StrategyListAction" input=".banner.strategy.list" />
+
+		<action path="/strategy/edit" type="com.betbrain.adf88.strategy.StrategyEditAction"
+			parameter="method" name="strategyForm" scope="request" validate="false"
+			input=".banner.strategy.edit">
+
+			<forward name="list" path="/strategy/list.do?" redirect="true" />
+		</action>
+
+		<action path="/strategy/target" name="bbBaseForm" scope="request"
+			attribute="targetForm" type="com.betbrain.adf88.strategy.TargetAction"
+			input="/jsp/strategy/targetSelect.jsp" />
+
+		<action path="/strategy/simulation" parameter="method"
+			type="com.betbrain.adf88.strategy.simulation.StrategySimulationAction"
+			name="strSimulationForm" scope="request" validate="false"
+			input=".banner.strategy.simulation" />
+		<!-- END STRATEGY module ======================================================== -->
+
+		<!-- START VOCABULARY module ========================================================================================================= -->
+		<action path="/activeLanguages" name="vocabularyForm" scope="request"
+			validate="false" parameter="action"
+			type="com.betbrain.adf88.vocabulary.VocabularyAction" input=".banner.activeLanguages.index" />
+
+		<!-- END VOCABULARY module =========================================================================================================== -->
+
+		<!-- START faq module ========================================================================================================= -->
+		<action path="/FAQ" name="bbBaseForm" scope="session" validate="false"
+			parameter="action" type="com.betbrain.affiliation.faq.FAQAction">
+			<forward name="list" path=".faq.list" />
+			<forward name="listaff" path=".faq.listAff" />
+			<forward name="edit" path=".faq.edit" />
+		</action>
+		<!-- END faq module =========================================================================================================== -->
+
+		<!-- START DASHBOARD module ========================================================================================================= -->
+		<action path="/dashboard" name="bbBaseForm" scope="request"
+			validate="false" parameter="action"
+			type="com.betbrain.affiliation.dashboard.frontend.DashboardAction">
+			<forward name="banner" path="/jsp/dashboard/bannerX.jsp" />
+			<forward name="mail" path="/jsp/dashboard/mailX.jsp" />
+			<forward name="affiliate" path="/jsp/dashboard/affiliateX.jsp" />
+			<forward name="channel" path="/jsp/dashboard/channelX.jsp" />
+			<forward name="balance" path="/jsp/dashboard/balance.jsp" />
+			<forward name="balanceBOV" path="/jsp/dashboard/balanceBOV.jsp" />
+			<forward name="users" path="/jsp/dashboard/users.jsp" />
+			<forward name="financial" path="/jsp/dashboard/affiliateFinancial.jsp"></forward>
+			<forward name="transactionApproval" path="/jsp/dashboard/transactionApprovalX.jsp"></forward>
+			<forward name="main" path=".dashboard" />
+			<forward name="affiliateAll" path=".dashboard.affiliateAll"></forward>
+			<forward name="channelAll" path=".dashboard.channelAll"></forward>
+		</action>
+
+		<action path="/newsList" name="newsForm" scope="request"
+			validate="false" parameter="action" type="com.betbrain.adf88.news.NewsListAction"
+			input="/jsp/news/newsList.jsp">
+		</action>
+
+		<action path="/newsDetailList" name="newsForm" scope="request"
+			validate="false" parameter="action" type="com.betbrain.adf88.news.NewsListAction"
+			input=".news.list">
+		</action>
+
+		<action path="/newsEdit" name="newsForm" scope="request"
+			validate="false" parameter="action" type="com.betbrain.adf88.news.NewsEditAction"
+			input=".news.edit">
+		</action>
+
+		<action path="/newsView" name="newsForm" scope="request"
+			validate="false" parameter="action" type="com.betbrain.adf88.news.NewsListAction"
+			input=".news.view">
+		</action>
+		<!-- END DASHBOARD module =========================================================================================================== -->
+
+		<!-- START REPORT module ==================================================== -->
+		<action path="/reports" name="reportForm" scope="request"
+			validate="false" type="com.betbrain.adf88.report.ReportsAction"
+			parameter="action" input=".banner.reports.index">
+		</action>
+		<action path="/reportsAction" name="reportForm" scope="request"
+			validate="false" type="com.betbrain.adf88.report.ReportAdminAction"
+			parameter="action" input=".banner.reports.admin">
+		</action>
+		<action path="/migration" name="reportForm" scope="request"
+			validate="false" type="com.betbrain.adf88.report.MigrateUsers"
+			parameter="action" input=".banner.reports.admin">
+			<forward name="success" path="/jsp/reports/migrateUsers.jsp"
+				redirect="true"></forward>
+		</action>
+		<action path="/resetUsersPasswords" name="reportForm" scope="request"
+			validate="false" type="com.betbrain.adf88.report.ResetUsersPasswords"
+			parameter="action" input=".banner.reports.admin">
+			<forward name="success" path="/jsp/userAff/resetUsersPasswords.jsp"
+				redirect="true"></forward>
+		</action>
+
+
+		<!-- START REPORT module for bet1128 ==================================================== -->
+		<action path="/banner/reports" name="reportForm" scope="request"
+			validate="false" type="com.betbrain.adf88.report.ReportsActionBet1128XML"
+			parameter="actionType" input=".banner.reports.index">
+		</action>
+		<!-- END REPORT module ====================================================== -->
+
+		<!-- START LOGGING module ====================================================== -->
+		<action path="/logs" scope="request" validate="false" name="logsForm"
+			type="com.betbrain.adf88.logs.LogsAction" parameter="method" input=".banner.logs">
+		</action>
+		<!-- END LOGGING module ====================================================== -->
+
+		<action path="/groupComponent" parameter="action"
+			type="com.betbrain.adf88.common.GroupComponentAction" name="GroupComponentForm"
+			scope="request" validate="true">
+			<forward name="list" path="/jsp/common/groupList.jsp" />
+			<forward name="info" path="/jsp/common/groupInfo.jsp" />
+			<forward name="modify" path="/jsp/common/groupModify.jsp" /> <!-- To satisfy Modify function -->
+		</action>
+
+		<!-- START Placement module ========================================================================================================== -->
+		<action path="/placement/edit" parameter="method"
+			type="com.betbrain.adf88.placement.PlacementEditAction" name="placementForm"
+			scope="request" validate="true" input=".banner.placement.edit">
+
+			<forward name="placementList" path="/placement/list.do"
+				redirect="true" />
+		</action>
+
+		<action path="/placement/list" parameter="method"
+			type="com.betbrain.adf88.placement.PlacementListAction" input=".banner.placement.list" />
+		<!-- END Placement module ============================================================================================================ -->
+
+		<!-- START Resources module ========================================================================================================== -->
+		<action path="/resource" name="resourceForm" parameter="method"
+			scope="request" validate="false"
+			type="com.betbrain.adf88.resources.ResourceListAction" input=".banner.resource.list">
+			<forward name="select" path="/jsp/resources/select.jsp" />
+			<forward name="edittext" path=".banner.resource.edit" />
+		</action>
+		<!-- END Resources module ============================================================================================================ -->
+
+		<!-- START Query module ============================================================================================================== -->
+		<action path="/query/list" parameter="method"
+			type="com.betbrain.adf88.query.QueryListAction" input=".banner.query.list" />
+
+		<action path="/queryOdds/edit" parameter="method"
+			type="com.betbrain.adf88.query.QueryOddsEditAction" name="queryOddsForm"
+			scope="session" validate="true" input=".banner.queryOdds.edit">
+
+			<forward name="list" path="/query/list.do?domainType=Odds"
+				redirect="true" />
+		</action>
+
+		<action path="/queryPoker/edit" parameter="method"
+			type="com.betbrain.adf88.query.poker.QueryPokerEditAction" name="queryPokerForm"
+			scope="session" validate="true" input=".banner.queryPoker.edit">
+
+			<forward name="listPoker" path="/query/list.do?domainType=Poker"
+				redirect="true" />
+		</action>
+
+		<action path="/queryCasino/edit" parameter="method"
+			type="com.betbrain.adf88.query.casino.QueryCasinoEditAction" name="queryCasinoForm"
+			scope="session" validate="true" input=".banner.queryCasino.edit">
+
+			<forward name="listCasino" path="/query/list.do?domainType=Casino"
+				redirect="true" />
+		</action>
+
+		<action path="/queryBingo/edit" parameter="method"
+			type="com.betbrain.adf88.query.bingo.QueryBingoEditAction" name="queryBingoForm"
+			scope="session" validate="true" input=".banner.queryBingo.edit">
+
+			<forward name="listBingo" path="/query/list.do?domainType=Bingo"
+				redirect="true" />
+		</action>
+		<!-- END Query module ================================================================================================================ -->
+
+		<!-- START BANNER module ============================================================================================================= -->
+		<action path="/banner/list" parameter="method"
+			type="com.betbrain.adf88.banner.BannerListAction" input=".banner.list">
+			<forward name="viewAll" path="/jsp/banner/bannerGrAll.jsp" />
+		</action>
+
+		<action path="/banner/edit" parameter="action"
+			type="com.betbrain.adf88.banner.BannerEditAction" name="bannerEditForm"
+			scope="session" validate="true">
+			<forward name="index" path=".banner.edit" />
+			<forward name="preview" path="/jsp/banner/bannerPreview.jsp" />
+		</action>
+
+		<action path="/banner/publish" parameter="method"
+			type="com.betbrain.adf88.banner.publish.BannerPublishAction" input="/jsp/banner/bannerPreview.jsp" />
+		<!-- END BANNER module ============================================================================================================== -->
+
+		<!-- ==========cris start========== -->
+		<action path="/click" name="bannerClick" scope="request"
+			type="com.betbrain.adf88.banner.BannerClickAction"></action>
+		<action path="/registered" scope="request"
+			type="com.betbrain.adf88.placement.RegisterTracker"></action>
+		<action path="/deposited" scope="request"
+			type="com.betbrain.adf88.placement.DepositTracker"></action>
+		<action path="/bet" scope="request"
+			type="com.betbrain.adf88.placement.BetTracker"></action>
+		<!-- ==========cris end========== -->
+
+		<action path="/translations" name="translationsForm" parameter="method"
+			scope="request" validate="false"
+			type="com.betbrain.adf88.translations.TranslationsAction" input=".adf88.translations">
+
+			<forward name="search" path="/jsp/translations/translations.jsp" />
+			<forward name="details" path="/jsp/translations/translationsDetails.jsp" />
+		</action>
+
+		<action path="/iframe" name="everyMatrixForm" parameter="method"
+			scope="request" validate="false"
+			type="com.betbrain.adf88.everyMatrix.EveryMatrixAction" input=".adf88.everyMatrix.edit">
+			<forward name="iframe" path="/jsp/everyMatrix/everyMatrix.jsp" />
+		</action>
+
+		<action path="/widget" type="com.betbrain.om.OMAction" input="/jsp/om/widget.jsp" />
+
+
+		<!-- AFFILIATION -->
+		<action path="/affiliation/commission" name="commissionStructureForm"
+			scope="request" validate="false" parameter="action"
+			type="com.betbrain.affiliation.userAff.admin.UserAffCommissionStructureAction"
+			input=".aff.commission">
+		</action>
+
+		<!-- PLACEMENT AFF -->
+		<!-- START Placement module ========================================================================================================== -->
+		<action path="/affiliation/placement/list" parameter="method"
+			type="com.betbrain.affiliation.placementAff.PlacementAffListAction"
+			input=".aff.placementAff.list" />
+
+		<action path="/affiliation/placement/edit" parameter="method"
+			type="com.betbrain.affiliation.placementAff.PlacementAffEditAction"
+			name="placementAffForm" scope="session" validate="true"
+			input=".aff.placementAff.edit">
+			<forward name="conditions" path="/jsp/placementAff/conditions.jsp"></forward>
+			<forward name="placementAffList" path="/affiliation/placement/list.do"
+				redirect="true" />
+		</action>
+
+		<!-- START affiliate management -->
+		<action path="/affiliate/banner" parameter="method"
+			type="com.betbrain.affiliation.banner.AffiliateBannerAction" name="affiliateBannerForm"
+			scope="request" input=".aff.banner" validate="false">
+
+			<forward name="trackingCode" path="/jsp/bannerAff/trackingCode.jsp"></forward>
+			<forward name="trackingCodeFull" path=".aff.banner.code"></forward>
+		</action>
+
+		<action path="/affiliate/report" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliateReportAction" name="affiliationReportForm"
+			scope="session" input=".affiliate.report" validate="false">
+
+			<forward name="list" path=".aff.report.banner.list"></forward>
+			<forward name="players" path=".aff.report.players"></forward>
+			<forward name="subaffiliatesRegReport" path=".aff.report.subAffRegReport"></forward>
+		</action>
+
+		<action path="/affiliate/chanelReport" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliateChanelReportAction"
+			name="bbBaseForm" scope="session" input=".affiliate.report.chanel"
+			validate="false">
+		</action>
+
+		<action path="/affiliate/registrationReport" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliateRegistrationReportAction"
+			name="bbBaseForm" scope="session" input=".affiliate.report.registration"
+			validate="false">
+		</action>
+
+
+		<action path="/affiliate/registrationReportBOV" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliateRegistrationReportAction"
+			name="affiliationClientReportForm" scope="session" input=".affiliate.report.registrationBOV"
+			validate="false">
+			<forward name="registeredPlayersReportBOV" path=".affiliate.report.registrationBOV"></forward>
+		</action>
+
+		<action path="/affiliate/financialReport" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliateFinancialReportAction"
+			name="affiliateFinancialReportForm" scope="request"
+			input=".affiliate.report.financial" validate="false">
+			<forward name="product" path=".affiliate.report.category"></forward>
+		</action>
+
+		<action path="/affiliate/balance" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliateBalanceAction" name="affiliateBalanceForm"
+			scope="request" input=".affiliate.report.balance" validate="false">
+			<forward name="transactionHistory" path=".affiliate.report.transactionHistory"></forward>
+		</action>
+
+		<action path="/affiliate/balanceBOV" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliateBalanceAction" name="affiliateBalanceForm"
+			scope="request" input=".affiliate.report.balanceBOV" validate="false">
+			<forward name="transactionHistory" path=".affiliate.report.transactionHistoryBOV"></forward>
+		</action>
+
+		<action path="/affiliate/balancePayExternally" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliateBalanceAction" name="affiliateBalanceForm"
+			scope="request" input=".affiliate.report.balancePayExternally" validate="false">
+			<forward name="transactionHistory" path=".affiliate.report.transactionHistoryPayExternally"></forward>
+		</action>
+
+		<action path="/affiliate/chanel" parameter="method"
+			type="com.betbrain.affiliation.banner.AffiliateChanelAction" name="bbBaseForm"
+			scope="request" input=".aff.banner.chanel" validate="false">
+		</action>
+
+		<action path="/affiliate/promoCode" parameter="method"
+			type="com.betbrain.affiliation.banner.AffiliatePromoCodeAction" name="promoCodeForm"
+			scope="request" input=".aff.banner.promoCode" validate="false">
+		</action>
+
+		<!-- REPORTS AFFILIATON -->
+		<action path="/affiliation/report/client" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliationClientReportAction"
+			name="affiliationClientReportForm" scope="request" input=".aff.report.client"
+			validate="false">
+			<forward name="transactionHistory" path=".affiliate.report.transactionHistory"></forward>
+			<forward name="registeredPlayersReport" path=".affiliation.report.affiliationRegistration"></forward>
+			<forward name="registeredPlayersReportBOV" path=".affiliation.report.affiliationRegistrationBOV"></forward>
+			<forward name="subAffiliatesRegReport" path=".affiliation.report.subAffiliationRegistration"></forward>
+		</action>
+		<action path="/affiliation/report/aff/client" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliationClientReportAffAction"
+			name="affiliationClientReportForm" scope="request" input=".aff.report.client"
+			validate="false" />
+
+
+		<action path="/affiliation/report" parameter="method"
+			type="com.betbrain.affiliation.report.AffiliationReportAction" name="affiliationReportForm"
+			scope="request" input=".aff.report" validate="false">
+
+			<forward name="list" path=".aff.report.banner.list"></forward>
+		</action>
+
+		<!-- ######################################################################
+			OTHERS ###################################################################### -->
+
+		<action path="/status"
+			type="com.betbrain.odds.web.struts.serverInfo.ServerInfoAction"
+			validate="false">
+			<forward name="main" path="/jsp/status/mem.jsp" />
+		</action>
+	</action-mappings>
+
+	<message-resources parameter="com.betbrain.adf88.Application" />
+
+	<!-- ================================ Plug-ins -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+	</plug-in>
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validation-rules.xml,/WEB-INF/validator.xml" />
+	</plug-in>
+
+</struts-config>
