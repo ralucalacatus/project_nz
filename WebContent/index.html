@@ -16,31 +16,36 @@
 	<script type="text/javascript" src="assets/js/switch.js"></script>
 </head>
 <body>
-	<header class="header">
-		<div class="status-bar"></div>
-		<a href="" class="back"></a>
-		<a href="settings.html" class="logo">pinaco</a>
-		<a href="" class="scan"></a>
-		<a href="" class="search"></a>
-	</header>
-	<div class="tabs">
-		<a href="exhibits.html" class="tab">Exponate</a>
-		<a href="museums.html" class="tab">Muzee</a>
-		<a href="map.html" class="tab">Harta</a>
-	</div>
-	<div class="body">
-		<ul class="list">
-			<li class="list-item">
-				<img src="assets/img/exhibit1.jpg" alt="">
-				<div class="imagebox">
-					<h3 class="title">Claude Monet</h3>
-					<p class="subtitle">The Houses of Parliament, Sunset, 1903</p>
-					<p class="info">National Gallery of Art, Washington D.C.</p>
-				</div>
-			</li>
-		</ul>
-		
-	</div>
+
+	<form>
+		<fieldset>
+			<legend>New site</legend>
+			<div>
+				<label for="name">Name</label>
+				<input type="text" name="name" id="name" value="" placeholder="Name" />
+			</div>
+			<div>
+				<label for="shortName">Short Name</label>
+				<input type="text" name="shortName" id="shortName" value="" placeholder="Short Name" />
+			</div>
+			<div>
+				<label for="externalUrl">External Url</label>
+				<input type="text" name="externalUrl" id="externalUrl" value="" placeholder="External Url" />
+			</div>
+			<div>
+				<label for="imageUrl">Image Url</label>
+				<input type="text" name="imageUrl" id="imageUrl" value="" placeholder="Image Url" />
+			</div>
+			<div>
+				<label for="description">Description</label>
+				<input type="text" name="description" id="description" value="" placeholder="Description" />
+			</div>
+			<div>
+				<label for="contactId">Contact ID</label>
+				<input type="text" name="contactId" id="contactId" value="" placeholder="Contact ID" />
+			</div>
+		</fieldset>
+	</form>
 
 </body>
 </html>
